@@ -1,13 +1,13 @@
 # igeek zsh-theme
 
 # System load
-g_load=`top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{printf "☉ System load : %.1f%", 100-$1 }'`
+g_load=`top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{printf "☉ System load : %.1f%%", 100-$1 }'`
 
 # Memory Usage
-g_memory=`free -m | awk 'NR==2{printf "☉ Memory Usage: %.2f%", $3*100/$2 }'`
+g_memory=`free -m | awk 'NR==2{printf "☉ Memory Usage: %.2f%%", $3*100/$2 }'`
 
 # Disk Usage
-g_disk=`df -h | awk '$NF=="/"{printf "☉ Disk Usage: %.1f%", $5}'`
+g_disk=`df -h | awk '$NF=="/"{printf "☉ Disk Usage: %.1f%%", $5}'`
 
 # System uptime
 g_uptime=`uptime | awk -F'( |,|:)+' '{ if ($7=="min") m=$6; else { if ($7~/^day/) { d=$6; h=$8; m=$9} else {h=$6;m=$7}}}{print "☉ System uptime:",d+0,"days,",h+0,"hours"}'`
