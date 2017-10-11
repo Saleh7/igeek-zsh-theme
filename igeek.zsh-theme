@@ -10,7 +10,7 @@ g_memory=`free -m | awk 'NR==2{printf "☉ Uso de Memória: %.2f%%", $3*100/$2 }
 g_disk=`df -h | awk '$NF=="/"{printf "☉ Uso de Disco: %.1f%%", $5}'`
 
 # System uptime
-g_uptime=`uptime | awk -F'( |,|:)+' '{ if ($7=="min") m=$6; else { if ($7~/^day/) { d=$6; h=$8; m=$9} else {h=$6;m=$7}}}{print "☉ System uptime:",d+0,"days,",h+0,"hours"}'`
+g_uptime=`uptime | awk -F'( |,|:)+' '{ if ($7=="min") m=$6; else { if ($7~/^day/) { d=$6; h=$8; m=$9} else {h=$6;m=$7}}}{print "☉ Sistema Ligado:",d+0,"days,",h+0,"hours"}'`
 
 # array System information
 g_listOfNames=("$g_load" "$g_memory" "$g_disk" "$g_uptime")
